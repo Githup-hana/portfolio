@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 
 function MainNavbar() {
-    return (  <nav className="flex space-x-4 border p-2 mb-2">
+    return (  <nav className="flex space-x-4 border p-2 mb-2 rounded-3xl">
         <NavLink
           to="/"
          
