@@ -1,14 +1,18 @@
 
 
+import { BrowserRouter } from 'react-router'
 import './App.css'
+import MainNavbar from './features/navigation/MainNavbar'
+import AllRouts from './features/routing/AllRoutes'
 
 function App() {
 
 
   return (
-    <div>
-      Hello, world!
-    </div>
+    <BrowserRouter>
+      <MainNavbar />
+     <AllRouts/>
+    </BrowserRouter>
   )
 }
 
