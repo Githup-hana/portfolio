@@ -1,9 +1,13 @@
+import AboutMe from "@aboutMe/AboutMe";
+import GetInTouch from "@getInTouch/GetInTouch";
+import Home from "@home/Home";
+import Projects from "@projects/Projects";
+import Skills from "@skills/Skills";
+
+
 import { Route, Routes } from "react-router";
-import Home from "@home/Home";               
-import AboutMe from "@aboutMe/AboutMe";    
-import GetInTouch from "@getInTouch/GetInTouch"; 
-import Skills from "@skills/Skills";        
-import Projects from "@projects/Projects"; 
+
+
 
 function AllRouts() {
   return (

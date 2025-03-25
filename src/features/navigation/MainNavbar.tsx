@@ -1,10 +1,11 @@
 import { NavLink } from "react-router";
 
 function MainNavbar() {
-    return (  <nav className="flex space-x-4 border p-2 mb-2 rounded-3xl">
+  return (
+    <div className="flex justify-center">
+      <nav className="flex justify-center space-x-8 border p-2 mb-2 rounded-3xl w-xl">
         <NavLink
           to="/"
-         
           className={({ isActive }) =>
             isActive ? "text-green-500" : "text-black"
           }
@@ -25,7 +26,7 @@ function MainNavbar() {
             isActive ? "text-green-500" : "text-black"
           }
         >
-      prpjects
+          Projects
         </NavLink>
         <NavLink
           to="/skills"
@@ -33,7 +34,7 @@ function MainNavbar() {
             isActive ? "text-green-500" : "text-black"
           }
         >
-     Skills
+          Skills
         </NavLink>
         <NavLink
           to="/get-in-touch"
@@ -41,9 +42,11 @@ function MainNavbar() {
             isActive ? "text-green-500" : "text-black"
           }
         >
-         Get in Touch
+          Get in Touch
         </NavLink>
-      </nav> );
+      </nav>
+    </div>
+  );
 }
 
 export default MainNavbar;
