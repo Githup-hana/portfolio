@@ -1,0 +1,135 @@
+.skills-container {
+  text-align: center;
+  color: white;
+  background-color: #222;
+  padding: 40px;
+  border-radius: 10px;
+  width: 60%;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.skills-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.skills-container p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  position: relative;
+  width: 130px;
+  height: 35px;
+  background-color: #666;
+  border-radius: 20px;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  user-select: none;
+}
+
+.toggle-btn.active {
+  background-color: #4caf50;
+}
+
+.toggle-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.toggle-circle {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 5px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 3;
+}
+
+.toggle-btn.active .toggle-circle {
+  transform: translateX(90px);
+}
+
+.skills-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  min-height: 100px;
+}
+
+.skills-list,
+.tools-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  min-width: 200px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.skills-list li,
+.tools-list li {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  font-style: italic;
+  color: #333;
+}
+
+.skills-list li:hover,
+.tools-list li:hover {
+  background-color: #e0e0e0;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  height: auto;
+}
+.skills-list li,
+.tools-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
+
+.skills-list li svg,
+.tools-list li svg {
+  font-size: 24px;
+  color: #4caf50;
+}
