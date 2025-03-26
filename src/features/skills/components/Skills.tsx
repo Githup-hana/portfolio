@@ -9,6 +9,7 @@ import {
   faGithub,
   faHtml5,
   faJs,
+  faLinux,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
@@ -64,6 +65,7 @@ function Skills() {
           <li>
             <FontAwesomeIcon icon={faCode} /> VS Code
           </li>
+          <li><FontAwesomeIcon icon ={faLinux}/> linux</li>
         </ul>
       </div>
     </div>
