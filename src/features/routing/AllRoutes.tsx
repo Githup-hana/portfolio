@@ -1,14 +1,11 @@
-
 import About from "@aboutMe/components/AboutMe";
 import GetInTouch from "@getInTouch/GetInTouch";
 import Home from "@home/components/Home";
-import Projects from "@projects/Projects";
+import Projects from "@projects/components/Project";
+
 import Skills from "@skills/components/Skills";
 
-
 import { Route, Routes } from "react-router";
-
-
 
 function AllRouts() {
   return (
@@ -19,7 +16,6 @@ function AllRouts() {
       <Route path="/skills" element={<Skills />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/:id" element={<Home />} />
-
     </Routes>
   );
 }
