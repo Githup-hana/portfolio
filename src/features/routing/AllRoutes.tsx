@@ -1,7 +1,8 @@
 import About from "@aboutMe/components/AboutMe";
-import GetInTouch from "@getInTouch/GetInTouch";
+import GetInTouch from "@getInTouch/components/GetInTouch";
 import Home from "@home/components/Home";
 import Projects from "@projects/components/Project";
+import ProjectDetails from "@projects/components/ProjectsDetails";
 
 import Skills from "@skills/components/Skills";
 
@@ -15,7 +16,7 @@ function AllRouts() {
       <Route path="/get-in-touch" element={<GetInTouch />} />
       <Route path="/skills" element={<Skills />} />
       <Route path="/projects" element={<Projects />} />
-      <Route path="/:id" element={<Home />} />
+      <Route path="/projects/:id" element={<ProjectDetails />} />
     </Routes>
   );
 }
