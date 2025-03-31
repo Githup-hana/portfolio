@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="home-container">
+    <div className="container mx-auto px-4">
       <header className="home-header">
         <h1>Hi, I'm Hana</h1>
         <p>Your Fullstack Web Developer</p>
@@ -26,7 +26,7 @@ function Home() {
       <section className="home-contact">
         <h2>Get In Touch</h2>
         <p>If you're interested in working with me, feel free to reach out!</p>
-        <a href="mailto:hana.abrham@dci-student.org" className="contact-button button-common">
+        <a href="/get-in-touch" className="contact-button button-common">
           Contact Me
         </a>
       </section>
