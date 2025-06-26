@@ -23,13 +23,13 @@ function Skills() {
 
   return (
     <div className="skills-container">
-      <h1>What My Programming Skills Include?</h1>
+      <h1 className="text-red-400">What My Programming Skills Include?</h1>
       <p>
         I develop simple, intuitive, and responsive user interfaces that help
         users get things done efficiently.
       </p>
 
-      <div className="toggle-container" onClick={toggleView}>
+      <div className="toggle-container " onClick={toggleView}>
         <div className={`toggle-btn ${showSkills ? "active" : ""}`}>
           <span className="toggle-text">{showSkills ? "Skills" : "Tools"}</span>
           <span className="toggle-circle"></span>
@@ -37,8 +37,8 @@ function Skills() {
       </div>
 
       <div className="skills-box">
-        <ul className={`skills-list ${showSkills ? "visible" : "hidden"}`}>
-          <li>
+        <ul className={`skills-list ${showSkills ? "visible" : "hidden"} bg-sand text-darkbg`}>
+          <li >
             <FontAwesomeIcon icon={faHtml5} /> HTML
           </li>
           <li>

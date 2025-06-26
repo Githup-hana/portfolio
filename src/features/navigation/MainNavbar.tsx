@@ -1,51 +1,90 @@
+import Languagebutt from "../../Components/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
+
+import {
+  FaCode,
+  FaEnvelope,
+  FaFolderOpen,
+  FaHome,
+  FaUser,
+} from "react-icons/fa";
+
 function MainNavbar() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex justify-center">
-      <nav className="flex justify-center space-x-8 border p-2 mb-2 rounded-3xl w-xl bg-gradient-to-br from-[#00d4ff] to-[#4caf50]">
+      {/* <div className="flex  flex-col sm:flex-row justify-end "> */}
+      {/* <button 
+          className="lg:hidden text-white text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
+        </button> */}
+
+      <nav className="flex justify-between flex-col sm:flex-row lg:justify-end   space-x-8  p-2 mb-2 rounded-3xl lg:w-xl ">
         <NavLink
           to="/"
           className={({ isActive }) =>
-              isActive ? "text-red-500" : "text-black"
+            `flex items-center gap-2 ${
+              isActive ? "text-red-500" : "text-sand dark:text-white"
+            }`
           }
         >
-          Home
+          <FaHome />
+          {t("Home")}
         </NavLink>
         <NavLink
           to="/about-me"
           className={({ isActive }) =>
-            isActive ? "text-red-500" : "text-black"
+            `flex items-center gap-2 ${
+              isActive ? "text-red-500" : "text-sand dark:text-white"
+            }`
           }
         >
-          About Me
+          <FaUser />
+          {t("about_Me")}
         </NavLink>
         <NavLink
           to="/projects"
           className={({ isActive }) =>
-             isActive ? "text-red-500" : "text-black"
+            `flex items-center gap-2 ${
+              isActive ? "text-red-500" : "text-sand dark:text-white"
+            }`
           }
         >
-          Projects
+          <FaFolderOpen />
+          {t("projects")}
         </NavLink>
         <NavLink
           to="/skills"
           className={({ isActive }) =>
-           isActive ? "text-red-500" : "text-black"
+            `flex items-center gap-2 ${
+              isActive ? "text-red-500" : "text-sand dark:text-white"
+            }`
           }
         >
-          Skills
+          <FaCode />
+          {t("skills")}
         </NavLink>
         <NavLink
           to="/get-in-touch"
           className={({ isActive }) =>
-             isActive ? "text-red-500" : "text-black"
+            `flex items-center gap-2 ${
+              isActive ? "text-red-500" : "text-sand dark:text-white"
+            }`
           }
         >
-          Get in Touch
+          <FaEnvelope />
+          {t("GetInTouch")}
         </NavLink>
       </nav>
+      <Languagebutt />
+      
     </div>
+    // </div>
   );
 }
 

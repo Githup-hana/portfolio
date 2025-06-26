@@ -11,7 +11,6 @@ interface Project {
   language: string | null;
   stargazers_count: number;
   homepage: string | null;
-
 }
 
 const Projects = () => {
@@ -22,11 +21,17 @@ const Projects = () => {
 
   const githubUsername = "Githup-hana";
   const githubRepoUrl = `https://api.github.com/users/${githubUsername}/repos`;
+  const githubOrgName = "CommitCrush";
+  const githubOrgNameUrl = `https://api.github.com/orgs/${githubOrgName}/repos`;
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(githubRepoUrl);
-      setProjects(response.data);
+      const [orgResponse, userRes] = await Promise.all([
+        axios.get(githubOrgNameUrl),
+        axios.get(githubRepoUrl),
+      ]);
+      const projekts = [...userRes.data, ...orgResponse.data];
+      setProjects(projekts);
       setLoading(false);
     } catch (err) {
       setError("Etwas ist schiefgelaufen beim Laden der Projekte");
@@ -75,14 +80,20 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+      className="py-20 bg-sand dark:bg-darkbg  dark:to-gray-800"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
             My GitHub Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto mb-8"></div>
+          <div
+            className="w-24 h-1 
+  bg-gradient-to-r from-[#b6aa9c] to-[#2d3341] 
+  dark:from-[#2d3341] dark:to-[#b6aa9c] 
+  mx-auto mb-8"
+          ></div>
+
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Explore my latest projects directly from GitHub. These repositories
             showcase my coding journey and technical expertise.
@@ -93,13 +104,17 @@ const Projects = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              className="group relative dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-sand dark:from-blue-600/10 dark:to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
+              <div
+                className="relative h-48 overflow-hidden bg-gradient-to-br 
+  from-[#b6aa9c] to-[#2d334188] 
+  dark:from-[#2d334188] dark:to-[#b6aa9c]"
+              >
                 <div className="absolute inset-0 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
                   <Code2 className="h-20 w-20 text-white/30" />
                 </div>
@@ -140,7 +155,7 @@ const Projects = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-2 text-sand dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                   <Link to={`/projects/${project.name}`}>{project.name}</Link>
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
@@ -154,9 +169,9 @@ const Projects = () => {
                       : "translate-y-4 opacity-0"
                   }`}
                 >
-               
-                  <div    className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium group/link"><Link to={`/projects/${project.name}`} >view details</Link></div>
-                  
+                  <div className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium group/link">
+                    <Link to={`/projects/${project.name}`}>view details</Link>
+                  </div>
                 </div>
               </div>
             </div>

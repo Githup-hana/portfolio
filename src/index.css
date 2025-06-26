@@ -1,17 +1,49 @@
+@import "tailwindcss";
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #333333; /* Dunkles Grau für Text */
-  background-color: #1e1e2f; /* Helles Grau für Hintergrund */
+ 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+/* html, body {
+  @apply bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300;
+} */
+body {
+  background-color: #997e6886;
+  color: #2d3341;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
 
+/* Dark Mode - Dunkler Hintergrund, heller Text */
+.dark body {
+  background-color: #2d3341;
+  color: #e8ddd4;
+}
 
+/* App Container */
+.app-container {
+  min-height: 100vh;
+  background-color: #e8ddd4;
+  color: #2d3341;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .app-container {
+  background-color: #2d3341;
+  color: #e8ddd4;
+}

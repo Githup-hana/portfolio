@@ -1,3 +1,4 @@
+import myResume from "../../../assets/My Resume (2).pdf"
 function About() {
   return (
     <div className="about-container">
@@ -37,7 +38,7 @@ function About() {
         <a href="/get-in-touch" className="contact-button button-common">
           skills
         </a>
-        <a href="" className="contact-button button-common">
+        <a href={myResume} target="black" className="contact-button button-common">
           view my Reaume 
         </a>
       </div>

@@ -1,11 +1,9 @@
-@import "tailwindcss";
 
 #root {
-  max-width: 1280px;
+  width: 100%; /* Ändere max-width zu width */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0; /* Entferne Padding, falls nicht benötigt */
   text-align: left;
 }
-
 
 
