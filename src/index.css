@@ -22,7 +22,7 @@ body {
   @apply bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300;
 } */
 body {
-  background-color: #997e6886;
+  background-color: #57597cc0;
   color: #2d3341;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin: 0;

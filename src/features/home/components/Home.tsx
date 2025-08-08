@@ -1,135 +1,122 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import myResume from "../../../assets/My Resume (2).pdf";
 import SocialIcons from "../../../Components/socialcons";
-import avatar from "../../../assets/myAvater.jpg";
+import avatar from "../../../assets/mypic.jpg";
+import webImg from "../../../assets/ webdeweloper2.jpg";
 
 function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-app-bg dark:bg-app-bg-dark text-app-text dark:text-app-text-dark">
-      {/* Hero Section with Background Pattern */}
+    <div 
+      className="min-h-screen relative flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${webImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Global Dark Overlay */}
+      <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
       
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-app-bg via-app-bg/90 to-app-text/10 dark:from-app-bg-dark dark:via-app-bg-dark/90 dark:to-app-text-dark/10"></div>
+      {/* Centered Content */}
+      <div className="relative z-10 text-center px-4 py-20">
         
-        {/* Decorative Circles */}
-        <div className="absolute top-20 right-20 w-32 h-32 bg-app-text/10 dark:bg-app-text-dark/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 bg-app-text/15 dark:bg-app-text-dark/15 rounded-full blur-lg"></div>
-        
-        {/* Hero Content */}
-        <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-app-text to-app-text/70 dark:from-app-text-dark dark:to-app-text-dark/70 bg-clip-text text-transparent">
-              Welcome to My Portfolio
-            </h1>
-            <p className="text-lg sm:text-xl text-app-text/80 dark:text-app-text-dark/80 max-w-2xl mx-auto">
-              {t("heroDescription", { 
-                defaultValue: "Crafting digital experiences with passion and precision" 
-              })}
-            </p>
-          </div>
-        </div>
-     
-
-      {/* Profile Section */}
-      <div className="-mt-32 relative z-20 flex flex-col items-center px-4 pb-20">
-        {/* Profile Card */}
-        <div className="bg-app-bg/80 dark:bg-app-bg-dark/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-app-text/10 dark:border-app-text-dark/10 max-w-4xl w-full">
-          {/* Avatar */}
-          <div className="flex justify-center mb-6">
-            <div className="relative">
+        {/* Modern Avatar with Glassmorphism */}
+        <div className="mb-12 relative">
+          <div className="relative inline-block">
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-30 scale-110 animate-pulse"></div>
+            
+            {/* Avatar */}
+            <div className="relative bg-white/20 dark:bg-white/10 backdrop-blur-lg rounded-full p-2 shadow-2xl border border-white/30">
               <img
                 src={avatar}
-                alt="Hana Mustermann"
-                className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-app-bg dark:border-app-bg-dark shadow-xl object-cover"
+                alt="Hana Abrham"
+                className="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover shadow-xl"
               />
-              <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-app-bg dark:border-app-bg-dark"></div>
+            </div>
+            
+            {/* Status Indicator */}
+            <div className="absolute -bottom-4 -right-4 bg-green-500 w-12 h-12 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-sm">✓</span>
             </div>
           </div>
+        </div>
 
-          {/* Name and Title */}
-          <div className="text-center mb-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-app-text dark:text-app-text-dark mb-2">
-              Hana Abrham
-            </h2>
-            <p className="text-lg sm:text-xl text-app-text/70 dark:text-app-text-dark/70 font-medium">
+        {/* Modern Typography */}
+        <div className="mb-12">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent drop-shadow-2xl">
+            Hana Abrham
+          </h1>
+          
+          <div className="relative">
+            <p className="text-xl sm:text-2xl lg:text-3xl text-white/90 font-light mb-8 drop-shadow-lg">
               {t("fullstackDeveloper", { defaultValue: "Fullstack Web Developer" })}
             </p>
+            
+            {/* Animated Underline */}
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full animate-pulse"></div>
           </div>
+        </div>
 
-          {/* Social Icons */}
-          <div className="flex justify-center mb-8">
-            <div className="flex gap-4 text-2xl text-app-text/60 dark:text-app-text-dark/60">
+        {/* Description */}
+        <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-12 font-light">
+          {t("homeIntro", {
+            defaultValue:
+              "I'm passionate about building clean, efficient, and scalable web applications. With a focus on modern technologies and user experience, I create digital solutions that make a difference.",
+          })}
+        </p>
+
+        {/* Modern Social Icons */}
+        <div className="mb-12">
+          <div className="flex justify-center gap-6">
+            <div className="bg-white/20 dark:bg-white/10 backdrop-blur-lg rounded-2xl p-4  shadow-xl hover:bg-white/30 transition-all duration-300 hover:scale-110">
               <SocialIcons />
             </div>
           </div>
-
-          {/* Description */}
-          <p className="text-center text-app-text/80 dark:text-app-text-dark/80 leading-relaxed max-w-2xl mx-auto mb-8">
-            {t("homeIntro", {
-              defaultValue:
-                "I'm passionate about building clean, efficient, and scalable web applications. With a focus on modern technologies and user experience, I create digital solutions that make a difference.",
-            })}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Link
-              to="/about-me"
-              className="group px-6 py-3 bg-app-text dark:bg-app-text-dark text-app-bg dark:text-app-bg-dark rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              <span className="flex items-center gap-2">
-                {t("learnAboutMe", { defaultValue: "Learn About Me" })}
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </span>
-            </Link>
-            
-            <Link
-              to="/projects"
-              className="px-6 py-3 border-2 border-app-text dark:border-app-text-dark text-app-text dark:text-app-text-dark rounded-full font-semibold hover:bg-app-text/10 dark:hover:bg-app-text-dark/10 transform hover:-translate-y-1 transition-all duration-300"
-            >
-              {t("checkProjects", { defaultValue: "View Projects" })}
-            </Link>
-            
-            <Link
-              to="/skills"
-              className="px-6 py-3 border-2 border-app-text dark:border-app-text-dark text-app-text dark:text-app-text-dark rounded-full font-semibold hover:bg-app-text/10 dark:hover:bg-app-text-dark/10 transform hover:-translate-y-1 transition-all duration-300"
-            >
-              {t("mySkills", { defaultValue: "My Skills" })}
-            </Link>
-          </div>
-
-          {/* Quote Section */}
-          <div className="border-t border-app-text/20 dark:border-app-text-dark/20 pt-8">
-            <blockquote className="text-center italic text-app-text/70 dark:text-app-text-dark/70 max-w-2xl mx-auto">
-              <p className="text-lg mb-4">
-                "In life, there's no such thing as staying where you are. If you are
-                not actively growing, you are inevitably falling behind."
-              </p>
-              <footer className="text-sm text-app-text/50 dark:text-app-text-dark/50">
-                — The Lubavitcher Rebbe
-              </footer>
-            </blockquote>
-          </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-12 text-center">
-          <p className="text-app-text/80 dark:text-app-text-dark/80 mb-6 text-lg">
-            Ready to work together?
-          </p>
-          <Link
-            to="/get-in-touch"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-app-text to-app-text/80 dark:from-app-text-dark dark:to-app-text-dark/80 text-app-bg dark:text-app-bg-dark rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
-          >
-            <span>{t("contactMe", { defaultValue: "Get In Touch" })}</span>
-            <span className="text-xl">✨</span>
-          </Link>
+        {/* Primary Action Buttons */}
+   {/* Minimale Glassmorphism Buttons */}
+<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+  <a
+    href={myResume}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 px-6 py-3 bg-white/15 backdrop-blur-md rounded-full border border-white/25 text-white/90 hover:bg-white/25 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg"
+  >
+    <span>👀</span>
+    <span>View Resume</span>
+  </a>
+  
+  <a
+    href={myResume}
+    download="Hana_Abrham_Resume.pdf"
+    className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white/80 hover:bg-white/20 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg"
+  >
+    <span>⬇️</span>
+    <span>Download</span>
+  </a>
+</div>
+
+        {/* Quote Section */}
+        <div className="bg-white/10 dark:bg-white/5 backdrop-blur-xl rounded-3xl  border-white/20 shadow-2xl p-8 max-w-4xl mx-auto">
+          <blockquote className="text-center">
+            <div className="text-4xl text-white/20 mb-2"></div>
+            <p className="text-lg sm:text-xl text-white/90 italic leading-relaxed mb-6 font-light">
+              "In life, there's no such thing as staying where you are. If you are
+              not actively growing, you are inevitably falling behind."
+            </p>
+            <footer className="text-white/60 font-medium">
+              — The Lubavitcher Rebbe
+            </footer>
+          </blockquote>
         </div>
       </div>
     </div>
   );
 }
-
 export default Home;

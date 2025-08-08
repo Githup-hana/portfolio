@@ -1,12 +1,19 @@
 .home-container {
-  color: #f5f5f5;
-  height: 100vh;
+  color: var(--app-text, #f5f5f5);
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
- 
+  background-color: var(--app-bg, #1a1a1a);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode container */
+.dark .home-container {
+  color: var(--app-text-dark, #e5e5e5);
+  background-color: var(--app-bg-dark, #0f0f0f);
 }
 
 .home-header {
@@ -18,14 +25,29 @@
   font-weight: 700;
   margin-bottom: 15px;
   color: #00d4ff;
+  text-shadow: 0 2px 4px rgba(0, 212, 255, 0.3);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Dark mode header adjustments */
+.dark .home-header h1 {
+  color: #40a9ff;
+  text-shadow: 0 2px 8px rgba(64, 169, 255, 0.4);
 }
 
 h2, p {
   font-size: 1.2rem;
   color: #b0b0b0;
   margin-bottom: 25px;
+  transition: color 0.3s ease;
 }
 
+/* Dark mode text */
+.dark h2, .dark p {
+  color: #d0d0d0;
+}
+
+/* Button Base Styles */
 .button-common {
   color: white;
   padding: 12px 24px;
@@ -38,7 +60,16 @@ h2, p {
   position: relative;
   overflow: hidden;
   display: inline-block;
-  margin-top: 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Dark mode button adjustments */
+.dark .button-common {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .button-common::before {
@@ -52,11 +83,23 @@ h2, p {
   transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* Dark mode button glow effect */
+.dark .button-common::before {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .button-common:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode hover effects */
+.dark .button-common:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .button-common:hover::before {
@@ -73,19 +116,148 @@ h2, p {
 
 .button-common:focus {
   outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
 }
 
+/* Dark mode focus */
+.dark .button-common:focus {
+  box-shadow: 0 0 0 3px rgba(64, 169, 255, 0.4);
+}
+
+/* CTA Button Styles */
 .cta-button {
   background: linear-gradient(135deg, #00d4ff, #4caf50);
+  position: relative;
 }
 
-.contact-button {
-  background: linear-gradient(135deg, #ff7f50, #ff4081);
-}
 .cta-button:hover {
   background: linear-gradient(135deg, #00d4ff, #ff4081);
 }
 
+/* Dark mode CTA button */
+.dark .cta-button {
+  background: linear-gradient(135deg, #1890ff, #52c41a);
+}
+
+.dark .cta-button:hover {
+  background: linear-gradient(135deg, #40a9ff, #73d13d);
+}
+
+/* Contact Button Styles */
+.contact-button {
+  background: linear-gradient(135deg, #ff7f50, #ff4081);
+  position: relative;
+}
+
 .contact-button:hover {
   background: linear-gradient(135deg, #ff7f50, #ffab91);
+}
+
+/* Dark mode contact button */
+.dark .contact-button {
+  background: linear-gradient(135deg, #ff7875, #f759ab);
+}
+
+.dark .contact-button:hover {
+  background: linear-gradient(135deg, #ff9c99, #ffadd6);
+}
+
+/* Resume Download Button */
+.resume-button {
+  background: linear-gradient(135deg, #722ed1, #eb2f96);
+  position: relative;
+}
+
+.resume-button:hover {
+  background: linear-gradient(135deg, #9254de, #f759ab);
+}
+
+/* Dark mode resume button */
+.dark .resume-button {
+  background: linear-gradient(135deg, #531dab, #c41d7f);
+}
+
+.dark .resume-button:hover {
+  background: linear-gradient(135deg, #722ed1, #eb2f96);
+}
+
+/* Skills Button */
+.skills-button {
+  background: linear-gradient(135deg, #faad14, #fa8c16);
+  position: relative;
+}
+
+.skills-button:hover {
+  background: linear-gradient(135deg, #ffc53d, #ffa940);
+}
+
+/* Dark mode skills button */
+.dark .skills-button {
+  background: linear-gradient(135deg, #d48806, #d4380d);
+}
+
+.dark .skills-button:hover {
+  background: linear-gradient(135deg, #faad14, #fa8c16);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2, p {
+    font-size: 1rem;
+  }
+  
+  .button-common {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-header h1 {
+    font-size: 2rem;
+  }
+  
+  .button-common {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    margin: 6px;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+/* Button animations for dark mode */
+.dark .button-common {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* Glow effect for dark mode buttons */
+.dark .button-common:hover {
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Button group container */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
 }

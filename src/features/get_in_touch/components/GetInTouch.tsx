@@ -44,7 +44,7 @@ function GetInTouch() {
           <input
             type="email"
             name="email"
-            className="w-full p-2 border rounded-md bg-gray-800 border-gray-700 text-white"
+            className="w-full p-2  bg-gray-800 text-white"
             required
             value={formData.email}
             onChange={handleChange}

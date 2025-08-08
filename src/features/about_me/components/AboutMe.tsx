@@ -1,4 +1,4 @@
-import myResume from "../../../assets/My Resume (2).pdf"
+import myResume from "../../../assets/My Resume (2).pdf";
 function About() {
   return (
     <div className="about-container">
@@ -32,14 +32,25 @@ function About() {
         web development. Let's work together to create something amazing!
       </p>
 
-      <h3>Technologies I Work With:</h3>
+    
       <div>
         {" "}
         <a href="/get-in-touch" className="contact-button button-common">
           skills
         </a>
-        <a href={myResume} target="black" className="contact-button button-common">
-          view my Reaume 
+        <a
+          href={myResume}
+          target="black"
+          className="contact-button button-common"
+        >
+          👀  view my Reaume
+        </a>
+        <a
+          href={myResume}
+          download="Hana_Abrham_Resume.pdf"
+          className="contact-button button-common"
+        >
+          ⬇️ Download Resume
         </a>
       </div>
     </div>
