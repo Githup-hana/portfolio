@@ -83,23 +83,23 @@ function Home() {
    {/* Minimale Glassmorphism Buttons */}
 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
   <a
-    href={myResume}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 px-6 py-3 bg-white/15 backdrop-blur-md rounded-full border border-white/25 text-white/90 hover:bg-white/25 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg"
-  >
-    <span>👀</span>
-    <span>View Resume</span>
-  </a>
-  
-  <a
-    href={myResume}
-    download="Hana_Abrham_Resume.pdf"
-    className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white/80 hover:bg-white/20 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg"
-  >
-    <span>⬇️</span>
-    <span>Download</span>
-  </a>
+              href={myResume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/30 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg font-semibold"
+            >
+              <span>👀</span>
+              <span>{t("viewResume")}</span>
+            </a>
+            
+            <a
+              href={myResume}
+              download="Hana_Abrham_Resume.pdf"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 backdrop-blur-md rounded-full border border-white/25 text-white/90 hover:bg-white/25 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg font-semibold"
+            >
+              <span>⬇️</span>
+              <span>{t("downloadResume")}</span>
+            </a>
 </div>
 
         {/* Quote Section */}

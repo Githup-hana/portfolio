@@ -1,57 +1,85 @@
+import { useTranslation } from "react-i18next";
 import myResume from "../../../assets/My Resume (2).pdf";
+import webImg from "../../../assets/ webdeweloper2.jpg";
+
 function About() {
+  const { t } = useTranslation();
+
   return (
-    <div className="about-container">
-      <h1>About Me</h1>
-      <p>
-        Hello! I'm a passionate <strong>Fullstack Web Developer</strong> with a
-        keen eye for detail and a love for crafting clean, efficient, and
-        responsive websites. I specialize in both frontend and backend
-        development, bringing a holistic approach to building dynamic web
-        applications.
-      </p>
+    <div 
+      className="min-h-screen relative flex items-center justify-center py-16 px-4"
+      style={{
+        backgroundImage: `url(${webImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Dark Overlay für bessere Lesbarkeit */}
+      <div className="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
+      
+      {/* Content Container */}
+      <div className="relative z-10 max-w-4xl mx-auto">
+        
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <span>{t("aboutMeTitle")}</span>
+          </h1>
+        </div>
 
-      <p>
-        I have a solid foundation in the core web technologies like{" "}
-        <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>
-        , and modern frameworks like <strong>React</strong> . My skills extend
-        to <strong>TypeScript</strong>, . I'm also proficient in version control
-        tools like <strong>Git</strong> .
-      </p>
+        {/* Content Card */}
+        <div className="bg-white/10 dark:bg-white/5 backdrop-blur-lg rounded-2xl p-8 md:p-12 border border-white/20 shadow-2xl">
+          
+          <div className="space-y-6 text-white/90 text-lg leading-relaxed">
+            <p>
+              {t("aboutIntro").split("Fullstack Web Developer").map((part, index) => (
+                index === 0 ? (
+                  <span key={index}>
+                    {part}<strong className="text-white">{t("fullstackDeveloper")}</strong>
+                  </span>
+                ) : (
+                  <span key={index}>{part}</span>
+                )
+              ))}
+            </p>
 
-      <p>
-        I believe in continuous learning and always strive to keep my skills
-        up-to-date with the latest industry trends. My approach to development
-        is to ensure a seamless user experience, clean code, and scalability
-        while solving problems in the most efficient way possible.
-      </p>
+            <p>
+              {t("aboutSkills")}
+            </p>
 
-      <p>
-        Whether it's building user-friendly UIs or creating robust backend
-        systems, I am excited about the endless possibilities in the world of
-        web development. Let's work together to create something amazing!
-      </p>
+            <p>
+              {t("aboutPhilosophy")}
+            </p>
 
-    
-      <div>
-        {" "}
-        <a href="/get-in-touch" className="contact-button button-common">
-          skills
-        </a>
-        <a
-          href={myResume}
-          target="black"
-          className="contact-button button-common"
-        >
-          👀  view my Reaume
-        </a>
-        <a
-          href={myResume}
-          download="Hana_Abrham_Resume.pdf"
-          className="contact-button button-common"
-        >
-          ⬇️ Download Resume
-        </a>
+            <p>
+              {t("aboutConclusion")}
+            </p>
+          </div>
+
+          {/* Resume Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
+            <a
+              href={myResume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/30 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg font-semibold"
+            >
+              <span>👀</span>
+              <span>{t("viewResume")}</span>
+            </a>
+            
+            <a
+              href={myResume}
+              download="Hana_Abrham_Resume.pdf"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 backdrop-blur-md rounded-full border border-white/25 text-white/90 hover:bg-white/25 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg font-semibold"
+            >
+              <span>⬇️</span>
+              <span>{t("downloadResume")}</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
