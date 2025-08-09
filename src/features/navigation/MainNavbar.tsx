@@ -3,6 +3,7 @@ import ThemeToggle from "../../Components/ThemeToggele";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import logo from "../../assets/mylogo.png";
 
 import {
   FaCode,
@@ -27,20 +28,44 @@ function MainNavbar() {
   };
 
   return (
-    <div className="bg-app-bg dark:bg-app-bg-dark border-b border-sand/30 dark:border-app-text-dark/30 transition-colors duration-300">
+    <div className="bg-app-bg dark:bg-app-bg-dark  border-sand/30 dark:border-app-text-dark/30 transition-colors duration-300">
       
       <div className="flex justify-between items-center px-4 py-3">
         
         {/* Logo */}
-        <div className="flex-shrink-0">
-          <NavLink 
-            to="/" 
-            className="text-xl font-bold text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-            onClick={closeMobileMenu}
-          >
-            Hana
-          </NavLink>
+       {/* Option 3: Stylisches Text-Logo */}
+{/* CSS-basiertes Logo anstatt Bild */}
+<div className="flex-shrink-0">
+  <NavLink 
+    to="/" 
+    className="group flex items-center transition-all duration-300"
+    onClick={closeMobileMenu}
+  >
+    {/* Option 2: Reines CSS Logo */}
+    <div className="flex items-center gap-2">
+      {/* Geometrisches Logo */}
+      <div className="relative">
+        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+          <div className="absolute inset-1 bg-white dark:bg-gray-900 rounded-lg flex items-center justify-center">
+            <span className="text-lg font-bold bg-gradient-to-br from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              H
+            </span>
+          </div>
         </div>
+      </div>
+      
+      {/* Text */}
+      <div className="hidden sm:block">
+        <h1 className="text-xl font-bold text-app-text dark:text-app-text-dark">
+          Hana<span className="text-blue-500">.</span>
+        </h1>
+        <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1 tracking-wider">
+          DEVELOPER
+        </p>
+      </div>
+    </div>
+  </NavLink>
+</div>
 
         {/* Desktop Navigation - Visible on medium screens and above */}
         <nav className=" md:flex justify-center items-center space-x-2 flex-1 px-4">

@@ -3,6 +3,7 @@ import myResume from "../../../assets/My Resume (2).pdf";
 import SocialIcons from "../../../Components/socialcons";
 import avatar from "../../../assets/mypic.jpg";
 import webImg from "../../../assets/ webdeweloper2.jpg";
+import logo from "../../../assets/mylogo.png";
 
 function Home() {
   const { t } = useTranslation();
