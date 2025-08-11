@@ -144,17 +144,25 @@ function MainNavbar() {
         <div className="flex items-center space-x-3">
           {/* Controls always visible */}
           <div className=" md:flex items-center space-x-3">
-            <Languagebutt />
-            <ThemeToggle />
+            <div className="text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+              <Languagebutt />
+            </div>
+            <div className="text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+              <ThemeToggle />
+            </div>
           </div>
           
           {/* Mobile controls and burger menu */}
           <div className="md:hidden flex items-center space-x-2">
-            <Languagebutt />
-            <ThemeToggle />
+            <div className="text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+              <Languagebutt />
+            </div>
+            <div className="text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+              <ThemeToggle />
+            </div>
             <button
               onClick={toggleMobileMenu}
-              className="p-2 rounded-lg text-app-text dark:text-app-text-dark hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors duration-300"
+              className="p-2 rounded-lg text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors duration-300"
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>

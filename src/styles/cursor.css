@@ -1,0 +1,57 @@
+/* Custom Cursor Styles */
+body {
+  cursor: none !important;
+}
+
+* {
+  cursor: none !important;
+}
+
+/* Override cursor for specific elements when needed */
+input:focus,
+textarea:focus,
+select:focus {
+  cursor: text !important;
+}
+
+/* Hide default cursor completely */
+a, button, [role="button"] {
+  cursor: none !important;
+}
+
+/* Custom animations for cursor */
+@keyframes pulse-custom {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body, * {
+    cursor: auto !important;
+  }
+}
+
+/* Smooth transitions for all cursor states */
+.cursor-element {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Hardware acceleration */
+.cursor-main,
+.cursor-follower {
+  transform: translateZ(0);
+}

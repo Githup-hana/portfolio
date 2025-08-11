@@ -27,14 +27,35 @@ const Projects = () => {
   const githubOrgName = "CommitCrush";
   const githubOrgNameUrl = `https://api.github.com/orgs/${githubOrgName}/repos`;
 
+  
+  const showcaseProjects = [
+    "Explore-Massawa",
+    "Finance_tracker-_with_react",
+    "Memory-Game",
+    "Solarpanel-Simulator",
+    "finance_tracker_-new",
+    "recipe-planner", 
+   
+  ];
+
   const fetchProjects = async () => {
     try {
+      console.log("🔍 Lade Projekte von beiden Quellen...");
+
       const [orgResponse, userRes] = await Promise.all([
         axios.get(githubOrgNameUrl),
         axios.get(githubRepoUrl),
       ]);
-      const projekts = [...userRes.data, ...orgResponse.data];
-      setProjects(projekts);
+
+      const allProjects = [...orgResponse.data, ...userRes.data];
+
+      console.log("🎯 Gesuchte Projekte:", showcaseProjects);
+
+      const filteredProjects = allProjects.filter((project) =>
+        showcaseProjects.includes(project.name)
+      );
+
+      setProjects(filteredProjects);
       setLoading(false);
     } catch (err) {
       setError(t("projectLoadingError"));
@@ -48,24 +69,25 @@ const Projects = () => {
 
   if (loading) {
     return (
-      <div 
+      <div
         className="min-h-screen relative flex items-center justify-center"
         style={{
           backgroundImage: `url(${webImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
         }}
       >
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
-        
+
         <div className="relative z-10 flex justify-center items-center">
           <div className="relative w-16 h-16">
             <div className="absolute inset-0 border-4 border-white/30 rounded-full animate-pulse"></div>
             <div className="absolute inset-0 border-t-4 border-white rounded-full animate-spin"></div>
           </div>
+          <p className="text-white ml-4 text-lg">{t("loading")}</p>
         </div>
       </div>
     );
@@ -73,19 +95,19 @@ const Projects = () => {
 
   if (error) {
     return (
-      <div 
+      <div
         className="min-h-screen relative flex items-center justify-center"
         style={{
           backgroundImage: `url(${webImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
         }}
       >
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
-        
+
         <div className="relative z-10 flex justify-center items-center">
           <div className="bg-white/20 dark:bg-white/10 backdrop-blur-lg border border-white/30 rounded-lg p-4 flex items-center space-x-3">
             <svg
@@ -109,35 +131,36 @@ const Projects = () => {
   }
 
   return (
-    <div 
+    <div
       className="min-h-screen relative"
       style={{
         backgroundImage: `url(${webImg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Global Dark Overlay */}
       <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
-      
+
       {/* Content */}
       <div className="relative z-10 py-20 px-4">
         <div className="container mx-auto sm:px-6 lg:px-8">
-          
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent drop-shadow-2xl">
               {t("myGithubProjects")}
             </h2>
-            
+
             {/* Animated Underline */}
             <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full animate-pulse mb-8"></div>
 
             <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto font-light">
               {t("projectsDescription")}
             </p>
+
+           
           </div>
 
           {/* Projects Grid */}
@@ -157,7 +180,7 @@ const Projects = () => {
                   <div className="absolute inset-0 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
                     <Code2 className="h-20 w-20 text-white/50" />
                   </div>
-                  
+
                   {/* Action Buttons on Hover */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <div className="transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex space-x-4">
@@ -216,7 +239,7 @@ const Projects = () => {
                         : "translate-y-4 opacity-0"
                     }`}
                   >
-                    <Link 
+                    <Link
                       to={`/projects/${project.name}`}
                       className="inline-flex items-center text-blue-300 hover:text-white font-medium transition-colors duration-300"
                     >
@@ -227,6 +250,21 @@ const Projects = () => {
               </div>
             ))}
           </div>
+
+          {/* Keine Projekte gefunden */}
+          {projects.length === 0 && (
+            <div className="text-center">
+              <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 border border-white/20">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Keine Projekte gefunden
+                </h3>
+                <p className="text-white/80">
+                  Überprüfen Sie die Konsole für Details zu verfügbaren
+                  Repositories.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
