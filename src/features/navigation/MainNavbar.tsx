@@ -3,7 +3,7 @@ import ThemeToggle from "../../Components/ThemeToggele";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../../assets/mylogo.png";
+
 
 import {
   FaCode,

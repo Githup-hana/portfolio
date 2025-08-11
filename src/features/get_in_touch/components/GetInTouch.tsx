@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import webImg from "../../../assets/ webdeweloper2.jpg";
-import { 
-  FaGithub, 
-  FaLinkedin, 
-  FaEnvelope, 
-  FaUser, 
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaUser,
   FaPaperPlane,
-  FaPhone,
   FaMapMarkerAlt,
-  FaCheckCircle
+  FaCheckCircle,
 } from "react-icons/fa";
 
 function GetInTouch() {
@@ -23,12 +22,14 @@ function GetInTouch() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
@@ -36,57 +37,59 @@ function GetInTouch() {
   };
 
   const validateForm = () => {
-    const newErrors: {[key: string]: string} = {};
-    
-    if (!formData.name.trim()) newErrors.name = t("nameRequired") || "Name is required";
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.name.trim())
+      newErrors.name = t("nameRequired") || "Name is required";
     if (!formData.email.trim()) {
       newErrors.email = t("emailRequired") || "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = t("emailInvalid") || "Email format is invalid";
     }
-    if (!formData.subject.trim()) newErrors.subject = t("subjectRequired") || "Subject is required";
-    if (!formData.message.trim()) newErrors.message = t("messageRequired") || "Message is required";
-    
+    if (!formData.subject.trim())
+      newErrors.subject = t("subjectRequired") || "Subject is required";
+    if (!formData.message.trim())
+      newErrors.message = t("messageRequired") || "Message is required";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
     }, 2000);
   };
 
   return (
-    <div 
+    <div
       className="min-h-screen relative flex items-center justify-center py-12 px-4"
       style={{
         backgroundImage: `url(${webImg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
-      
+
       {/* Content */}
       <div className="relative z-10 w-full max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          
           {/* Left Side - Contact Info */}
           <div className="space-y-8">
             {/* Header */}
@@ -94,12 +97,13 @@ function GetInTouch() {
               <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent drop-shadow-2xl mb-4">
                 {t("GetInTouch") || "Get In Touch"}
               </h1>
-              
+
               {/* Animated Underline */}
               <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto lg:mx-0 rounded-full animate-pulse mb-6"></div>
-              
+
               <p className="text-lg sm:text-xl text-white/80 leading-relaxed font-light">
-                {t("contactDescription") || "Have a project in mind? Let's collaborate and create something amazing!"}
+                {t("contactDescription") ||
+                  "Have a project in mind? Let's collaborate and create something amazing!"}
               </p>
             </div>
 
@@ -112,8 +116,10 @@ function GetInTouch() {
                     <FaEnvelope className="text-white text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold">{t("email") || "Email"}</h3>
-                    <a 
+                    <h3 className="text-white font-semibold">
+                      {t("email") || "Email"}
+                    </h3>
+                    <a
                       href="mailto:hana.abrham@dci-student.org"
                       className="text-blue-300 hover:text-blue-400 transition-colors"
                     >
@@ -130,7 +136,9 @@ function GetInTouch() {
                     <FaMapMarkerAlt className="text-white text-lg" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold">{t("location") || "Location"}</h3>
+                    <h3 className="text-white font-semibold">
+                      {t("location") || "Location"}
+                    </h3>
                     <p className="text-gray-300">{t("germany") || "Germany"}</p>
                   </div>
                 </div>
@@ -166,14 +174,18 @@ function GetInTouch() {
 
           {/* Right Side - Contact Form */}
           <div className="bg-white/10 dark:bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-2xl">
-            
             {/* Success Message */}
             {isSubmitted && (
               <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg flex items-center gap-3">
                 <FaCheckCircle className="text-green-400 text-xl" />
                 <div>
-                  <h3 className="text-green-400 font-semibold">{t("messageSent") || "Message Sent!"}</h3>
-                  <p className="text-green-300 text-sm">{t("messageThankYou") || "Thank you for your message. I'll get back to you soon!"}</p>
+                  <h3 className="text-green-400 font-semibold">
+                    {t("messageSent") || "Message Sent!"}
+                  </h3>
+                  <p className="text-green-300 text-sm">
+                    {t("messageThankYou") ||
+                      "Thank you for your message. I'll get back to you soon!"}
+                  </p>
                 </div>
               </div>
             )}
@@ -191,11 +203,13 @@ function GetInTouch() {
                   value={formData.name}
                   onChange={handleChange}
                   className={`w-full p-4 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ${
-                    errors.name ? 'border-red-500' : 'border-white/30'
+                    errors.name ? "border-red-500" : "border-white/30"
                   }`}
                   placeholder={t("namePlaceholder") || "Your full name"}
                 />
-                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+                {errors.name && (
+                  <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+                )}
               </div>
 
               {/* Email Field */}
@@ -210,11 +224,15 @@ function GetInTouch() {
                   value={formData.email}
                   onChange={handleChange}
                   className={`w-full p-4 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ${
-                    errors.email ? 'border-red-500' : 'border-white/30'
+                    errors.email ? "border-red-500" : "border-white/30"
                   }`}
-                  placeholder={t("emailPlaceholder") || "your.email@example.com"}
+                  placeholder={
+                    t("emailPlaceholder") || "your.email@example.com"
+                  }
                 />
-                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                {errors.email && (
+                  <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
 
               {/* Subject Field */}
@@ -228,11 +246,13 @@ function GetInTouch() {
                   value={formData.subject}
                   onChange={handleChange}
                   className={`w-full p-4 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ${
-                    errors.subject ? 'border-red-500' : 'border-white/30'
+                    errors.subject ? "border-red-500" : "border-white/30"
                   }`}
                   placeholder={t("subjectPlaceholder") || "What's this about?"}
                 />
-                {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject}</p>}
+                {errors.subject && (
+                  <p className="text-red-400 text-sm mt-1">{errors.subject}</p>
+                )}
               </div>
 
               {/* Message Field */}
@@ -246,11 +266,16 @@ function GetInTouch() {
                   onChange={handleChange}
                   rows={5}
                   className={`w-full p-4 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 resize-none ${
-                    errors.message ? 'border-red-500' : 'border-white/30'
+                    errors.message ? "border-red-500" : "border-white/30"
                   }`}
-                  placeholder={t("messagePlaceholder") || "Tell me about your project or idea..."}
+                  placeholder={
+                    t("messagePlaceholder") ||
+                    "Tell me about your project or idea..."
+                  }
                 />
-                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
+                {errors.message && (
+                  <p className="text-red-400 text-sm mt-1">{errors.message}</p>
+                )}
               </div>
 
               {/* Submit Button - Styled like Home page buttons */}
@@ -261,7 +286,7 @@ function GetInTouch() {
               >
                 {/* Button Background Gradient on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 {/* Button Content */}
                 <div className="relative flex items-center gap-3">
                   {isSubmitting ? (
