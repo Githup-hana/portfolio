@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'app-bg': '#e8ddd4',      // Sand für Light Mode
-        'app-text': '#2d3341',     // Dunkel für Light Mode Text
-        'app-bg-dark': '#2d3341',  // Dunkel für Dark Mode
-        'app-text-dark': '#e8ddd4', // Sand für Dark Mode Text
         'sand': '#b6aa9c',
+        'app-bg': '#e8ddd4',
+        'app-text': '#2d3341',
+        'app-bg-dark': '#2d3341',
+        'app-text-dark': '#e8ddd4',
         'darkbg': '#2d3341'
       },
     },

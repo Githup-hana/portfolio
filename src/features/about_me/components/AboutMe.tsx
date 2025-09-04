@@ -16,21 +16,17 @@ function About() {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Dark Overlay für bessere Lesbarkeit */}
       <div className="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
       
-      {/* Content Container */}
       <div className="relative z-10 max-w-4xl mx-auto">
         
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             <span>{t("aboutMeTitle")}</span>
           </h1>
         </div>
 
-        {/* Content Card */}
-        <div className="bg-white/10 dark:bg-white/5 backdrop-blur-lg rounded-2xl p-8 md:p-12 border border-white/20 shadow-2xl">
+        <div className="max-w-6xl mx-auto bg-white/10 dark:bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
           
           <div className="space-y-6 text-white/90 text-lg leading-relaxed">
             <p>
@@ -58,7 +54,6 @@ function About() {
             </p>
           </div>
 
-          {/* Resume Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
             <a
               href={myResume}

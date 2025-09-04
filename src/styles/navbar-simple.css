@@ -1,0 +1,185 @@
+/* Simple Navbar Styles - Clean Implementation */
+
+/* Ensure navbar takes full width */
+.navbar-main {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Enhanced navbar container */
+.navbar-container {
+  background: rgba(232, 221, 212, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(182, 170, 156, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Ensure all navbar elements are properly aligned */
+.grid.grid-cols-3 > div {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+}
+
+.dark .navbar-container {
+  background: rgba(45, 51, 65, 0.95);
+  border-bottom: 1px solid rgba(232, 221, 212, 0.3);
+}
+
+/* Enhanced navbar with improved animations */
+.desktop-nav a {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.desktop-nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.desktop-nav a:hover::before,
+.desktop-nav a.active::before {
+  left: 0;
+}
+
+.desktop-nav a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Logo hover animation enhancement */
+.logo-container:hover {
+  transform: scale(1.05) rotate(2deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Theme toggle enhanced animation */
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile menu animation */
+.mobile-menu {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.mobile-menu.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.mobile-menu.closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Ensure all navigation links are clickable */
+nav a {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  text-decoration: none !important;
+  position: relative;
+  z-index: 10;
+}
+
+nav a:hover {
+  text-decoration: none !important;
+}
+
+/* Make sure spans and icons don't block clicks */
+nav a span {
+  pointer-events: none;
+}
+
+nav a svg {
+  pointer-events: none;
+}
+
+/* Simple responsive rules - no complex overrides */
+@media (max-width: 767px) {
+  /* Mobile: hide desktop nav, show mobile controls */
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .desktop-controls {
+    display: none !important;
+  }
+  
+  .mobile-controls {
+    display: flex !important;
+  }
+  
+  /* On mobile, make sure grid still works but navigation is hidden */
+  .grid.grid-cols-3 {
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    min-height: 60px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Desktop: show desktop nav, hide mobile menu */
+  .desktop-nav {
+    display: flex !important;
+    align-items: center;
+  }
+  
+  .desktop-controls {
+    display: flex !important;
+  }
+  
+  .mobile-controls {
+    display: none !important;
+  }
+  
+  /* On desktop, equal spacing for 3 columns */
+  .grid.grid-cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    min-height: 60px;
+    width: 100%;
+  }
+}
+
+/* Force full width for all navbar elements */
+nav, .navbar-container, .bg-app-bg {
+  width: 100% !important;
+}
+
+/* Mobile menu takes full width too */
+.mobile-menu {
+  width: 100%;
+}
+
+/* Ensure navbar has proper z-index and positioning */
+.navbar-main {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 767px) {
+  nav a {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+}

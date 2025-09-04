@@ -28,122 +28,119 @@ function MainNavbar() {
   };
 
   return (
-    <div className="bg-app-bg dark:bg-app-bg-dark  border-sand/30 dark:border-app-text-dark/30 transition-colors duration-300">
+    <div className="bg-app-bg dark:bg-app-bg-dark border-b border-sand/30 dark:border-app-text-dark/30 transition-colors duration-300 sticky top-0 z-50 backdrop-blur-sm w-full">
       
-      <div className="flex justify-between items-center px-4 py-3">
+      <div className="grid grid-cols-3 items-center px-4 py-3 w-full">
         
-        {/* Logo */}
-       {/* Option 3: Stylisches Text-Logo */}
-{/* CSS-basiertes Logo anstatt Bild */}
-<div className="flex-shrink-0">
-  <NavLink 
-    to="/" 
-    className="group flex items-center transition-all duration-300"
-    onClick={closeMobileMenu}
-  >
-    {/* Option 2: Reines CSS Logo */}
-    <div className="flex items-center gap-2">
-      {/* Geometrisches Logo */}
-      <div className="relative">
-        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
-          <div className="absolute inset-1 bg-white dark:bg-gray-900 rounded-lg flex items-center justify-center">
-            <span className="text-lg font-bold bg-gradient-to-br from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              H
-            </span>
-          </div>
+        {/* Logo - Links (Spalte 1) */}
+        <div className="flex justify-start items-center">
+          <NavLink 
+            to="/" 
+            className="group flex items-center transition-all duration-300"
+            onClick={closeMobileMenu}
+          >
+            <div className="flex items-center gap-2">
+              <div className="relative">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                  <div className="absolute inset-1 bg-white dark:bg-gray-900 rounded-lg flex items-center justify-center">
+                    <span className="text-lg font-bold bg-gradient-to-br from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                      H
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="hidden sm:block">
+                <h1 className="text-xl font-bold text-app-text dark:text-app-text-dark">
+                  Hana<span className="text-blue-500">.</span>
+                </h1>
+                <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1 tracking-wider">
+                  DEVELOPER
+                </p>
+              </div>
+            </div>
+          </NavLink>
         </div>
-      </div>
-      
-      {/* Text */}
-      <div className="hidden sm:block">
-        <h1 className="text-xl font-bold text-app-text dark:text-app-text-dark">
-          Hana<span className="text-blue-500">.</span>
-        </h1>
-        <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1 tracking-wider">
-          DEVELOPER
-        </p>
-      </div>
-    </div>
-  </NavLink>
-</div>
 
-        {/* Desktop Navigation - Visible on medium screens and above */}
-        <nav className=" md:flex justify-center items-center space-x-2 flex-1 px-4">
+        {/* Desktop Navigation - Mitte (Spalte 2) */}
+        <div className="flex justify-center items-center">
+          <nav className="desktop-nav flex items-center space-x-1 lg:space-x-3">
           <NavLink 
             to="/" 
             className={({ isActive }) =>
-              `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+              `flex items-center gap-2 px-3 lg:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 ${
                 isActive 
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30' 
                   : 'text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400'
               }`
             }
           >
-            <FaHome />
+            <FaHome className="text-sm" />
             <span>{t("Home")}</span>
           </NavLink>
           
           <NavLink 
             to="/about-me" 
             className={({ isActive }) =>
-              `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+              `flex items-center gap-2 px-3 lg:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 ${
                 isActive 
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30' 
                   : 'text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400'
               }`
             }
           >
-            <FaUser />
+            <FaUser className="text-sm" />
             <span>{t("about_Me")}</span>
           </NavLink>
           
           <NavLink 
             to="/projects" 
             className={({ isActive }) =>
-              `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+              `flex items-center gap-2 px-3 lg:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 ${
                 isActive 
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30' 
                   : 'text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400'
               }`
             }
           >
-            <FaFolderOpen />
+            <FaFolderOpen className="text-sm" />
             <span>{t("projects")}</span>
           </NavLink>
           
           <NavLink 
             to="/skills" 
             className={({ isActive }) =>
-              `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+              `flex items-center gap-2 px-3 lg:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 ${
                 isActive 
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30' 
                   : 'text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400'
               }`
             }
           >
-            <FaCode />
+            <FaCode className="text-sm" />
             <span>{t("skills")}</span>
           </NavLink>
           
           <NavLink 
             to="/get-in-touch" 
             className={({ isActive }) =>
-              `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+              `flex items-center gap-2 px-3 lg:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 ${
                 isActive 
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30' 
                   : 'text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400'
               }`
             }
           >
-            <FaEnvelope />
+            <FaEnvelope className="text-sm" />
             <span>{t("GetInTouch")}</span>
           </NavLink>
-        </nav>
+          </nav>
+        </div>
 
-        {/* Right Controls */}
-        <div className="flex items-center space-x-3">
-          {/* Controls always visible */}
-          <div className=" md:flex items-center space-x-3">
+        {/* Toggles und Mobile Menu - Rechts (Spalte 3) */}
+        <div className="flex justify-end items-center space-x-3">
+          {/* Desktop: Language & Theme Toggles */}
+          <div className="desktop-controls flex items-center space-x-3">
             <div className="text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
               <Languagebutt />
             </div>
@@ -152,8 +149,8 @@ function MainNavbar() {
             </div>
           </div>
           
-          {/* Mobile controls and burger menu */}
-          <div className="md:hidden flex items-center space-x-2">
+          {/* Mobile: Language, Theme & Hamburger Menu */}
+          <div className="mobile-controls flex items-center space-x-2">
             <div className="text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
               <Languagebutt />
             </div>
@@ -163,6 +160,8 @@ function MainNavbar() {
             <button
               onClick={toggleMobileMenu}
               className="p-2 rounded-lg text-app-text dark:text-app-text-dark hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors duration-300"
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
@@ -170,8 +169,7 @@ function MainNavbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - Only visible on small screens when toggled */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${
+      <div className={`mobile-menu transition-all duration-300 ease-in-out ${
         isMobileMenuOpen 
           ? 'max-h-96 opacity-100' 
           : 'max-h-0 opacity-0 overflow-hidden'

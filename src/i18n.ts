@@ -13,17 +13,16 @@ const resources = {
       myProject: "Check Out My Projects",
       contactMe: "Contact",
       
-      // About Me Übersetzungen
       viewResume: "View Resume",
       downloadResume: "Download Resume",
       aboutMeTitle: "About Me",
       fullstackDeveloper: "Fullstack Web Developer",
+      homeIntro: "I'm passionate about building clean, efficient, and scalable web applications. With a focus on modern technologies and user experience, I create digital solutions that make a difference.",
       aboutIntro: "Hello! I'm a passionate Fullstack Web Developer with a keen eye for detail and a love for crafting clean, efficient, and responsive websites. I specialize in both frontend and backend development, bringing a holistic approach to building dynamic web applications.",
       aboutSkills: "I have a solid foundation in the core web technologies like HTML, CSS, JavaScript, and modern frameworks like React. My skills extend to TypeScript. I'm also proficient in version control tools like Git.",
       aboutPhilosophy: "I believe in continuous learning and always strive to keep my skills up-to-date with the latest industry trends. My approach to development is to ensure a seamless user experience, clean code, and scalability while solving problems in the most efficient way possible.",
       aboutConclusion: "Whether it's building user-friendly UIs or creating robust backend systems, I am excited about the endless possibilities in the world of web development. Let's work together to create something amazing!",
       
-      // Projekt-Übersetzungen
       myGithubProjects: "My GitHub Projects",
       projectsDescription: "Explore my latest projects directly from GitHub. These repositories showcase my coding journey and technical expertise.",
       viewDetails: "View Details",
@@ -39,7 +38,6 @@ const resources = {
       loading: "Loading...",
       backToProjects: "Back to Projects",
       
-      // GetInTouch Übersetzungen
       contactDescription: "Have a project in mind? Let's collaborate and create something amazing!",
       email: "Email",
       location: "Location",
@@ -61,7 +59,6 @@ const resources = {
       subjectRequired: "Subject is required",
       messageRequired: "Message is required",
       
-      // Skills Übersetzungen
       skillsTitle: "My Programming Skills",
       skillsDescription: "I develop simple, intuitive, and responsive user interfaces that help users get things done efficiently.",
       skillsTab: "Skills",
@@ -84,17 +81,16 @@ const resources = {
       myProject: "Schau dir meine Projekte an",
       contactMe: "Kontaktiere mich",
       
-      // About Me Deutsche Übersetzungen
       viewResume: "Lebenslauf ansehen",
       downloadResume: "Lebenslauf herunterladen",
       aboutMeTitle: "Über mich",
       fullstackDeveloper: "Fullstack-Webentwickler",
+      homeIntro: "Ich bin leidenschaftlich dabei, saubere, effiziente und skalierbare Webanwendungen zu entwickeln. Mit einem Fokus auf moderne Technologien und Benutzererfahrung erstelle ich digitale Lösungen, die einen Unterschied machen.",
       aboutIntro: "Hallo! Ich bin ein leidenschaftlicher Fullstack-Webentwickler mit einem Auge für Details und einer Liebe für die Erstellung sauberer, effizienter und responsiver Websites. Ich spezialisiere mich sowohl auf Frontend- als auch Backend-Entwicklung und bringe einen ganzheitlichen Ansatz für die Erstellung dynamischer Webanwendungen mit.",
       aboutSkills: "Ich habe eine solide Grundlage in den wichtigsten Webtechnologien wie HTML, CSS, JavaScript und modernen Frameworks wie React. Meine Fähigkeiten erstrecken sich auf TypeScript. Ich bin auch versiert im Umgang mit Versionskontrolltools wie Git.",
       aboutPhilosophy: "Ich glaube an kontinuierliches Lernen und bemühe mich immer, meine Fähigkeiten auf dem neuesten Stand der Branchentrends zu halten. Mein Ansatz zur Entwicklung ist es, eine nahtlose Benutzererfahrung, sauberen Code und Skalierbarkeit zu gewährleisten und dabei Probleme auf die effizienteste Weise zu lösen.",
       aboutConclusion: "Ob es darum geht, benutzerfreundliche UIs zu erstellen oder robuste Backend-Systeme zu entwickeln, ich bin begeistert von den endlosen Möglichkeiten in der Welt der Webentwicklung. Lassen Sie uns zusammenarbeiten und etwas Großartiges schaffen!",
       
-      // Projekt Deutsche Übersetzungen
       myGithubProjects: "Meine GitHub Projekte",
       projectsDescription: "Entdecken Sie meine neuesten Projekte direkt von GitHub. Diese Repositories zeigen meine Coding-Reise und technische Expertise.",
       viewDetails: "Details anzeigen",
