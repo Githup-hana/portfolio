@@ -55,7 +55,7 @@ function MainNavbar() {
                   Hana<span className="text-blue-500">.</span>
                 </h1>
                 <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1 tracking-wider">
-                  DEVELOPER
+                  WEBENTWICKLERIN
                 </p>
               </div>
             </div>

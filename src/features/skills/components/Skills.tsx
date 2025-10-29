@@ -8,33 +8,64 @@ import {
   faJs,
   faLinux,
   faReact,
+  faNodeJs,
+  faSass,
+  faSlack,
+  faGithubAlt,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faCode, 
+  faDatabase, 
+  faCloud, 
+  faPaintBrush, 
+  faTasks,
+  faLeaf,
+  faCog,
+  faServer,
+  faRocket
+} from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
 import webImg from "../../../assets/ webdeweloper2.jpg";
-import { Link } from "react-router-dom";
 
 function Skills() {
   const { t } = useTranslation();
-  const [showSkills, setShowSkills] = useState(true);
+  const [activeCategory, setActiveCategory] = useState("frontend");
 
-  const toggleView = () => {
-    setShowSkills((prev) => !prev);
-  };
-
-  const skillsData = [
-    { name: "HTML", icon: faHtml5, color: "text-orange-500" },
-    { name: "CSS", icon: faCss3Alt, color: "text-blue-500" },
-    { name: "JavaScript", icon: faJs, color: "text-yellow-500" },
-    { name: "React", icon: faReact, color: "text-cyan-500" },
-    { name: "TypeScript", icon: faCode, color: "text-blue-600" },
+  // Frontend Technologies
+  const frontendSkills = [
+    { name: "HTML5", icon: faHtml5, color: "text-orange-500", level: 95 },
+    { name: "CSS3", icon: faCss3Alt, color: "text-blue-500", level: 90 },
+    { name: "JavaScript", icon: faJs, color: "text-yellow-500", level: 88 },
+    { name: "React", icon: faReact, color: "text-cyan-500", level: 85 },
+    { name: "TypeScript", icon: faCode, color: "text-blue-600", level: 80 },
+    { name: "Tailwind CSS", icon: faLeaf, color: "text-teal-500", level: 92 },
+    { name: "SASS", icon: faSass, color: "text-pink-500", level: 85 },
+    { name: "Next.js", icon: faReact, color: "text-black dark:text-white", level: 82 },
+    { name: "Vite", icon: faRocket, color: "text-purple-500", level: 80 },
   ];
 
-  const toolsData = [
-    { name: "Git", icon: faGitAlt, color: "text-red-500" },
-    { name: "GitHub", icon: faGithub, color: "text-white" },
-    { name: "VS Code", icon: faCode, color: "text-blue-500" },
-    { name: "Linux", icon: faLinux, color: "text-yellow-600" },
+  // Backend & Database
+  const backendSkills = [
+    { name: "Node.js", icon: faNodeJs, color: "text-green-600", level: 85 },
+    { name: "Bun", icon: faServer, color: "text-orange-600", level: 75 },
+    { name: "MongoDB", icon: faDatabase, color: "text-green-500", level: 80 },
+  ];
+
+  // Tools & Deployment
+  const toolsSkills = [
+    { name: "Git", icon: faGitAlt, color: "text-red-500", level: 90 },
+    { name: "GitHub", icon: faGithub, color: "text-gray-800 dark:text-white", level: 88 },
+    { name: "Vercel", icon: faCloud, color: "text-black dark:text-white", level: 85 },
+    { name: "Render", icon: faCloud, color: "text-blue-600", level: 82 },
+    { name: "Trello", icon: faTasks, color: "text-blue-500", level: 90 },
+    { name: "Slack", icon: faSlack, color: "text-purple-600", level: 85 },
+    { name: "Canva", icon: faPaintBrush, color: "text-pink-500", level: 88 },
+  ];
+
+  const categories = [
+    { id: "frontend", name: "Frontend", skills: frontendSkills },
+    { id: "backend", name: "Backend & Database", skills: backendSkills },
+    { id: "tools", name: "Tools & Deployment", skills: toolsSkills },
   ];
 
   return (

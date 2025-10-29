@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import myResume from "../../../assets/My Resume (2).pdf";
 import SocialIcons from "../../../Components/socialcons";
-import avatar from "../../../assets/mypic.jpg";
+import avatar from "../../../assets/mypassbilder.png";
 import webImg from "../../../assets/ webdeweloper2.jpg";
 
 function Home() {
