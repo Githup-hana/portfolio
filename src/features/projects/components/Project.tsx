@@ -33,7 +33,7 @@ const Projects = () => {
     "Finance_tracker-_with_react",
     "Memory-Game",
     "Solarpanel-Simulator",
-    "finance_tracker_-new",
+    "event-mood-ticket",
     "recipe-planner", 
    
   ];
