@@ -7,6 +7,7 @@ import {
   faHtml5,
   faJs,
   faReact,
+  faVuejs,
   faNodeJs,
   faSass,
   faSlack,
@@ -39,6 +40,8 @@ function SkillsNew() {
     { name: "SASS", icon: faSass, color: "text-pink-500", level: 70, description: "CSS Preprocessor & Variables" },
     { name: "Next.js", icon: faReact, color: "text-black dark:text-white", level: 60, description: "SSR & Static Generation" },
     { name: "Vite", icon: faRocket, color: "text-purple-500", level: 75, description: "Fast Build Tool & HMR" },
+    { name: "Vue.js", icon: faVuejs, color: "text-green-500", level: 70, description: "Progressive JS Framework" },
+    { name: "Vuetify", icon: faPaintBrush, color: "text-teal-400", level: 60, description: "Material Design UI Framework for Vue" },
   ];
 
   // Backend & Database

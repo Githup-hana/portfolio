@@ -26,7 +26,7 @@ function About() {
           </h1>
         </div>
 
-        <div className="max-w-6xl mx-auto bg-white/10 dark:bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+        <div className="max-w-6xl mx-auto bg-white/10 dark:bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-visible p-8 md:p-12">
           
           <div className="space-y-6 text-white/90 text-lg leading-relaxed">
             <p>
