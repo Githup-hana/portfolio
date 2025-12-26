@@ -43,9 +43,9 @@ a, button, [role="button"] {
   }
 }
 
-/* Smooth transitions for all cursor states */
+/* Smooth transitions for all cursor states (slower for easier clicking) */
 .cursor-element {
-  transition: all 0.2s ease-out;
+  transition: all 0.45s ease-out;
   will-change: transform;
   backface-visibility: hidden;
 }

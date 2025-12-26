@@ -123,7 +123,7 @@ function GetInTouch() {
                       href="mailto:hana.abrham@dci-student.org"
                       className="text-blue-300 hover:text-blue-400 transition-colors"
                     >
-                      hana.abrham@dci-student.org
+                      hanaabrham25@gmail.com
                     </a>
                   </div>
                 </div>
