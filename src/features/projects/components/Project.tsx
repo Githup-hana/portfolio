@@ -28,20 +28,19 @@ const Projects = () => {
   const githubOrgNameUrl = `https://api.github.com/orgs/${githubOrgName}/repos`;
 
   
-  const showcaseProjects = [
-    "Explore-Massawa",
-    "Finance_tracker-_with_react",
-    "Memory-Game",
-    "Solarpanel-Simulator",
-    "event-mood-ticket",
-    "recipe-planner", 
-    "Reise-Blog",
-   
-  ];
+const showcaseProjects = [
+  "Explore-Massawa",
+  "finance_tracker_-new",
+  "Memory-Game",
+  "Solarpanel-Simulator",
+  "event-mood-ticket",
+  "smartplates",
+  "Reise-Blog",
+];
 
   const fetchProjects = async () => {
     try {
-      console.log("🔍 Lade Projekte von beiden Quellen...");
+      
 
       const [orgResponse, userRes] = await Promise.all([
         axios.get(githubOrgNameUrl),
