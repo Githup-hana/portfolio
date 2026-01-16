@@ -22,11 +22,10 @@ import {
   faServer,
   faRocket
 } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
+// i18n not used in this component; keep strings inline for now
 import webImg from "../../../assets/ webdeweloper2.jpg";
 
 function SkillsNew() {
-  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("frontend");
 
   // Frontend Technologies
@@ -244,7 +243,7 @@ function SkillsNew() {
       </div>
 
       {/* Custom Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes slideInUp {
           from {
             opacity: 0;

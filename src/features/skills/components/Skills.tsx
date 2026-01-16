@@ -6,30 +6,30 @@ import {
   faGithub,
   faHtml5,
   faJs,
-  faLinux,
   faReact,
   faNodeJs,
   faSass,
   faSlack,
-  faGithubAlt,
 } from "@fortawesome/free-brands-svg-icons";
-import { 
+import {
   faCode, 
   faDatabase, 
   faCloud, 
   faPaintBrush, 
   faTasks,
   faLeaf,
-  faCog,
   faServer,
   faRocket
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import webImg from "../../../assets/ webdeweloper2.jpg";
 
 function Skills() {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = useState("frontend");
+  // simple toggle between showing skills and showing tools
+  const [showSkills, setShowSkills] = useState<boolean>(true);
+  const toggleView = () => setShowSkills((s) => !s);
 
   // Frontend Technologies
   const frontendSkills = [
@@ -62,11 +62,9 @@ function Skills() {
     { name: "Canva", icon: faPaintBrush, color: "text-pink-500", level: 88 },
   ];
 
-  const categories = [
-    { id: "frontend", name: "Frontend", skills: frontendSkills },
-    { id: "backend", name: "Backend & Database", skills: backendSkills },
-    { id: "tools", name: "Tools & Deployment", skills: toolsSkills },
-  ];
+  // Data for rendering simpler lists (include backend so it's visible in skills view)
+  const skillsData = [...frontendSkills, ...backendSkills];
+  const toolsData = toolsSkills;
 
   return (
     <div 
@@ -140,7 +138,7 @@ function Skills() {
                   : "opacity-0 transform translate-x-full absolute inset-0"
               }`}
             >
-              {skillsData.map((skill, index) => (
+              {skillsData.map((skill: { name: string; icon: any; color: string; level: number }, index: number) => (
                 <div
                   key={skill.name}
                   className="bg-white/10 dark:bg-white/5 backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border border-white/20 hover:border-white/40"
@@ -167,7 +165,7 @@ function Skills() {
                   : "opacity-0 transform -translate-x-full absolute inset-0"
               }`}
             >
-              {toolsData.map((tool, index) => (
+              {toolsData.map((tool: { name: string; icon: any; color: string; level: number }, index: number) => (
                 <div
                   key={tool.name}
                   className="bg-white/10 dark:bg-white/5 backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border border-white/20 hover:border-white/40"
