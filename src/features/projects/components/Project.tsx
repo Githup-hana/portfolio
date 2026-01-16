@@ -35,6 +35,7 @@ const Projects = () => {
     "Solarpanel-Simulator",
     "event-mood-ticket",
     "recipe-planner", 
+    "Reise-Blog",
    
   ];
 
